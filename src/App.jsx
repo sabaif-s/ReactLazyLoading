@@ -3,8 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 const ImageAsset=lazy(()=>
   import('./assets/imageAsset'));
- 
+// import ImageAsset from './assets/imageAsset';
 import './App.css'
+const LazyLoading=lazy(()=> import('./components/LazyLoading'));
+// import LazyLoading from './components/LazyLoading';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,9 +20,14 @@ function App() {
     <>
     {
       renderImageAsset && (
-        <Suspense fallback={<div>Loading..</div>} >
-        <ImageAsset/>
+        // <ImageAsset/>
+        // <Suspense fallback={<div>Loading..</div>} >
+        // <ImageAsset/>
+        // </Suspense>
+        <Suspense fallback={<div>Loading..</div>}>
+                 <LazyLoading/>
         </Suspense>
+        
       )
     }
        
